@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JSON SQL Online</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <div class="container" ng-app="jsonSql" ng-controller="MainCtrl">
+        <h1>JSON SQL Online</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <form ng-submit="createDB()">
+              <textarea rows="10" cols="50" placeholder="Paste JSON" ng-model="jsonData">
+              </textarea>
+              <br/>
+              <button type="submit" class="btn btn-default">
+                Create DB
+              </button>
+            </form>
+          </div>
+          <div class="col-md-6 bg-info doc">
+              Enter a valid json object
+          </div>
+        </div>
+    </div>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="lib/app.js"></script>
+    <script src="lib/jsonsql.js"></script>
+  </body>
+</html>
