@@ -1,11 +1,23 @@
 <div class="row" ng-controller="QueryDBCtrl">
-
-  <div class="col-md-6">
-
-  Query Page    
-
+  <div class="col-md-6">    
+      <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
+        <div class="form-group">
+          <label for="columns" class="col-md-2 control-label">Select</label>
+          <div class="col-md-4">
+            <input class="form-control" id="columns" placeholder="*" ng-model="columns"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="table" class="col-md-2 control-label">From</label>
+          <div class="col-md-4">
+            <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-4">
+            <button type="submit" class="btn btn-default">Run Query</button>
+          </div>
+        </div>
+      </form>
   </div>
-
-  
-
 </div>
