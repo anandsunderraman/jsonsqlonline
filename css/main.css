@@ -1,3 +1,9 @@
 .doc {
 	min-height: 200px;
+	color: #337ab7;
+}
+.jsonsqlheader {
+	background-color: #6f5499;
+	color: #fff;
+	padding: 10px;	
 }
