@@ -1,18 +1,23 @@
 <div ng-controller="QueryDBCtrl">
   <div class="row" >
-    <div class="col-md-6">    
+    <div class="col-md-12">    
         <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
           <div class="form-group">
             <label for="columns" class="col-md-2 control-label">Select</label>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <input class="form-control" id="columns" placeholder="*" ng-model="columns"/>
             </div>
           </div>
           <div class="form-group">
             <label for="table" class="col-md-2 control-label">From</label>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
             </div>
+          </div>
+          <div ng-show="!checkValidTable() || !checkValidColumns()" class="col-md-offset-2 col-md-10">
+            <br/>
+            <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
+            <span ng-show="!checkValidColumns()">Column names are invalid</span>
           </div>
           <div class="form-group">
             <div class="col-md-offset-2 col-md-4">
@@ -25,10 +30,16 @@
   <div class="row">
     <div class="col-md-12">
       <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th ng-repeat="header in columnNames">
+              {{header}}
+            </th>
+          </tr>
+        </thead>
         <tr ng-repeat="row in queryResult">
-          <!--td>{{row}}</td-->
-          <td ng-repeat="(key,value) in row">
-            {{value}}
+          <td ng-repeat="key in columnNames">
+            {{row[key]}}
           </td>
         </tr>
       </table>
