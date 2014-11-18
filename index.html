@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="jsonSql">
   <head>
     <title>JSON SQL Online</title>
     <meta charset="utf-8">
@@ -8,45 +8,29 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    
   </head>
   <body>
 
-    <div class="container" ng-app="jsonSql" ng-controller="MainCtrl">
-        <h1>JSON SQL Online</h1>
-
-        <div class="row">
-
-          <div class="col-md-6">
-
-            <form name="jsonForm" ng-submit="createDB()" class="css-form" novalidate>
-              <textarea rows="10" cols="50" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" json>
-                {{jsonData}}
-              </textarea>
-              <br/>
-              <span ng-show="jsonForm.jsonData.$error.json">Please enter a valid JSON String</span>
-              <br/>
-
-              <button type="submit" class="btn btn-default" ng-disabled="form.$invalid || emptyInput()">
-                Create DB
-              </button>
-            </form>
-
-          </div>
-
-          <div class="col-md-6 bg-info doc">
-              Enter a valid json string
-          </div>
-
+    <div class="container">
+        <div class="row jsonsqlheader">
+            <h1>JSON SQL Online {}</h1>
         </div>
-
+        <br/>
+        <div ng-view></div>
     </div>
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script-->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
+    <script src="lib/uscore.js"></script>
     <script src="lib/app.js"></script>
+    <script src="lib/controllers.js"></script>
     <script src="lib/jsonsql.js"></script>
   </body>
 </html>
