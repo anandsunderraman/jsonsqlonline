@@ -5,8 +5,10 @@ This is an online tool to query json objects.
 
 Queries could look like:
 
-1. select <key1>, <key2>, ..... <keyn> 
+1. ````
+   select <key1>, <key2>, ..... <keyn> 
    from <json>
+   ````
    Where key1, key2, .... keyn are keys in the json object
 
 2. The json object could also be nested, which means the following query is also valid
