@@ -1,7 +1,11 @@
 <div class="row" ng-controller="CreateDBCtrl">
   <div class="col-md-6">
+    <div class="jsonsqlheader-sm">
+      <h4>Step 1: Create JSON Database</h4>
+    </div>
+    <br/>
     <form name="jsonForm" ng-submit="createDB()" class="css-form" novalidate>
-      <textarea rows="10" cols="70" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" json>
+      <textarea rows="20" cols="76" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" json>
         {{jsonData}}
       </textarea>
       <br/>
@@ -14,25 +18,26 @@
     </form>
   </div>
 
-  <div class="col-md-6 bg-info doc">
+  <div class="col-md-6">
+    <div class="jsonsqlheader-sm">
+      <h4>Step 2: Query JSON Object </h4>
+    </div>
     <br/>
-    <ul>
-      <li>
-        <strong>Enter a valid json string</strong>
-      </li>
-      <li>
-        <strong>eg. {"Country": [{"name":"India","capital":"New Delhi"},{"name":"USA","capital":"Washington DC"}]}</strong>
-      </li>
-      <li>
-        <strong>The parsed JSON object is your database</strong>
-      </li>
-      <li>
-        <strong>Use sql like queries on ths json object</strong>
-      </li>
-      <li>
-        <strong>eg. select * from Country, select name from Country</strong>
-      </li>
-    </ul>
+    <div class="bg-info doc">
+      <ul>
+        <li>
+          <strong>Enter a valid json string</strong>
+        </li>
+        <li>
+          <strong>The parsed JSON object is the database</strong>
+        </li>
+        <li>
+          <strong>Use sql like queries on ths json object</strong>
+        </li>
+        <li>
+          <strong>eg. select * from Country, select name from Country</strong>
+        </li>
+      </ul>
+    </div>
   </div>
-
 </div>
