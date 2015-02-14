@@ -5,7 +5,8 @@ This is an online tool to query json objects.
 
 Queries could look like:
 
-1.
+1. Simple select query looks like
+
    ````
    select <key1>, <key2>, ..... <keyn> 
    from <json>
