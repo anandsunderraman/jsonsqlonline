@@ -22,7 +22,8 @@ Queries could look like:
    Where key1, key2, .... keyn are keys in the json object located @ path.to.nested.json
 
 TODO:
-1. Provide for where clause
-2. Make the javascript library a submodule
-3. Jasmine tests
-4. Provide for group by feature
+
+* Provide for where clause
+* Make the javascript library a submodule
+* Jasmine tests
+* Provide for group by feature
