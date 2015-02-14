@@ -11,7 +11,7 @@
       <br/>
       <span ng-show="jsonForm.jsonData.$error.json">Please enter a valid JSON String</span>
       <br/>
-
+      <!--button is disabled if text area is empty or json string is invalid-->
       <button type="submit" class="btn btn-default" ng-disabled="form.$invalid || emptyInput()">
         Create DB
       </button>
