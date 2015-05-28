@@ -27,11 +27,11 @@
             </div>
           </div>
 
-          <div ng-show="!checkValidTable() || !checkValidColumns()|| !checkWhereClause()" class="col-md-offset-2 col-md-10">
+          <div ng-show="!checkValidTable() || !checkValidColumns()|| !checkValidWhereClause()" class="col-md-offset-2 col-md-10">
             <br/>
             <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
             <span ng-show="!checkValidColumns()">Column names are invalid</span>
-            <span ng-show="!checkWhereClause()">Javascript in where clause is invalid</span>
+            <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
           </div>
           <div class="form-group">
             <div class="col-md-offset-2 col-md-4">
