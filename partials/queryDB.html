@@ -2,22 +2,36 @@
   <div class="row" >
     <div class="col-md-12">    
         <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
+          <!-- Select form input -->
           <div class="form-group">
             <label for="columns" class="col-md-2 control-label">Select</label>
             <div class="col-md-10">
               <input class="form-control" id="columns" ng-model="columns"/>
             </div>
           </div>
+
+          <!-- from form input -->
           <div class="form-group">
             <label for="table" class="col-md-2 control-label">From</label>
             <div class="col-md-10">
               <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
             </div>
           </div>
-          <div ng-show="!checkValidTable() || !checkValidColumns()" class="col-md-offset-2 col-md-10">
+
+          <!-- where form input -->
+          <div class="form-group">
+            <label for="table" class="col-md-2 control-label">Where</label>
+            <div class="col-md-10">
+              <textarea class="form-control" id="whereClause" placeholder="Javascript conditions" 
+              ng-model="whereClause" rows="8"></textarea>
+            </div>
+          </div>
+
+          <div ng-show="!checkValidTable() || !checkValidColumns()|| !checkWhereClause()" class="col-md-offset-2 col-md-10">
             <br/>
             <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
             <span ng-show="!checkValidColumns()">Column names are invalid</span>
+            <span ng-show="!checkWhereClause()">Javascript in where clause is invalid</span>
           </div>
           <div class="form-group">
             <div class="col-md-offset-2 col-md-4">
