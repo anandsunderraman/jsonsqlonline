@@ -35,10 +35,22 @@
           <strong>Use sql like queries on ths json object</strong>
         </li>
         <li>
-          <strong>eg. select name from country returns a list of country names</strong>
+          <strong>select name from country returns a list of country names</strong>
         </li>
         <li>
-          <strong>eg. select name, dignitaries.president from country returns a list of country names and their presidents</strong>
+          <strong>select name, dignitaries.president from country returns a list of country names and their presidents</strong>
+        </li>
+        <li>
+          <strong>
+            select * <br/> from country <br/> where this.name === 'India' <br/> 
+            returns all objects in the country array that have name == 'India'
+          </strong>
+        </li>
+        <li>
+          <strong>
+            select * <br/> from country.0.dignitaries <br/> 
+            returns all properties in the dignitaries object located in the first object of the country array
+          </strong>
         </li>
       </ul>
     </div>
