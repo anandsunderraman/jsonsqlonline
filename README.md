@@ -3,6 +3,8 @@ Querying JSON Objects online
 http://anandsunderraman.github.io/jsonsqlonline
 This is an online tool to query json objects.
 
+For more details and screenshots on how to use this tool please read my blog http://jsonsqlonline.blogspot.com/2015/06/querying-json-objects-using-sqlish.html
+
 Queries could look like:
 
 1. Simple select query looks like
