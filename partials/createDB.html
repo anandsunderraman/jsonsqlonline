@@ -1,8 +1,5 @@
 <div class="row" ng-controller="CreateDBCtrl">
-  <div class="col-md-6">
-    <div class="jsonsqlheader-sm">
-      <h4>Step 1: Create JSON Database</h4>
-    </div>
+  <div class="col-md-12">
     <br/>
     <form name="jsonForm" ng-submit="createDB()" class="css-form" novalidate>
       <textarea rows="20" class="txt-area" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" json>
@@ -13,50 +10,12 @@
       <br/>
       <!--button is disabled if text area is empty or json string is invalid-->
       <button type="submit" class="btn btn-default" ng-disabled="form.$invalid || emptyInput()">
-        Create DB
+        Query JSON
       </button>
       <a class="btn btn-default" ng-click="loadSample()">
         Load example
       </a>
     </form>
     
-  </div>
-
-  <div class="col-md-6">
-    <div class="jsonsqlheader-sm">
-      <h4>Step 2: Query JSON Object </h4>
-    </div>
-    <br/>
-    <div class="bg-info doc">
-      <ul>
-        <li>
-          <strong>Enter a valid json string</strong>
-        </li>
-        <li>
-          <strong>The parsed JSON object is the database</strong>
-        </li>
-        <li>
-          <strong>Use sql like queries on ths json object</strong>
-        </li>
-        <li>
-          <strong>select name from country returns a list of country names</strong>
-        </li>
-        <li>
-          <strong>select name, dignitaries.president from country returns a list of country names and their presidents</strong>
-        </li>
-        <li>
-          <strong>
-            select * <br/> from country <br/> where this.name === 'India' <br/> 
-            returns all objects in the country array that have name == 'India'
-          </strong>
-        </li>
-        <li>
-          <strong>
-            select * <br/> from country.0.dignitaries <br/> 
-            returns all properties in the dignitaries object located in the first object of the country array
-          </strong>
-        </li>
-      </ul>
-    </div>
   </div>
 </div>

@@ -1,8 +1,7 @@
 <div ng-controller="QueryDBCtrl">
   <div class="row" >
     <div class="col-md-3">
-        <div class="jsonTree">
-        </div>  
+        <div class="jsonTree"></div>  
     </div> 
     <div class="col-md-9">    
         <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
@@ -38,8 +37,18 @@
             <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
           </div>
           <div class="form-group">
-            <div class="col-md-offset-2 col-md-4">
+            <div class="col-md-offset-2 col-md-2">
               <button type="submit" class="btn btn-default">Run Query</button>
+            </div>
+            <div class="col-md-3">
+              <a class="btn btn-default" ng-click="populateFrom()">
+                Use Selected Node in From
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a class="btn btn-default" ng-click="populateSelect()">
+                Use Selected Node in Select
+              </a>
             </div>
           </div>
         </form>
