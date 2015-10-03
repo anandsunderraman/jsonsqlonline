@@ -1,8 +1,12 @@
+<div class="jumbotron">
+  <h2>JSON SQL Online</h2>
+  <p>Query JSON Objects using sql like syntax</p>
+</div>
 <div class="row" ng-controller="CreateDBCtrl">
   <div class="col-md-12">
     <br/>
     <form name="jsonForm" ng-submit="createDB()" class="css-form" novalidate>
-      <textarea rows="20" class="txt-area" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" json>
+      <textarea rows="20" class="txt-area" placeholder="Paste JSON" ng-model="jsonData" name="jsonData" jsonValidate>
         {{jsonData}}
       </textarea>
       <br/>
@@ -16,6 +20,5 @@
         Load example
       </a>
     </form>
-    
   </div>
 </div>

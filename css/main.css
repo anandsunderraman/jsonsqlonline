@@ -16,3 +16,7 @@
 .txt-area {
 	width: 100%;
 }
+/*for fixed top*/
+body { 
+	padding-top: 70px; 
+}
