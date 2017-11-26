@@ -1,0 +1,202 @@
+<div ng-con	troller="DocsCtrl">
+  <div class="row">  	
+  	<div>
+  		<div class="col-md-3">
+		  	<ul class="nav nav-pills nav-stacked" role="tablist" id="docsTab">
+			  <li role="presentation" class="active">
+			  	<a show-tab href="#intro" aria-controls="intro" role="tab" data-toggle="tab">Introduction</a>
+			  </li>
+			  <li role="presentation">
+			  	<a show-tab href="#simplequery" aria-controls="simplequery" role="tab" data-toggle="tab">Simple query</a>
+			  </li>
+			  <li role="presentation">
+			  	<a show-tab href="#querynested" aria-controls="querynested" role="tab" data-toggle="tab">Query nested objects</a>
+			  </li>
+			  <li role="presentation">
+			  	<a show-tab href="#selectnested" aria-controls="selectnested" role="tab" data-toggle="tab">Select nested keys</a>
+			  </li>
+			  <li role="presentation">
+			  	<a show-tab href="#whereclause" aria-controls="whereclause" role="tab" data-toggle="tab">The where clause</a>
+			  </li>
+			  <li role="presentation">
+			  	<a show-tab href="#treeview" aria-controls="treeview" role="tab" data-toggle="tab">Using the tree view</a>
+			  </li>
+			</ul>
+		</div>
+
+		<div class="tab-content col-md-9">
+			<div role="tabpanel" class="tab-pane active well" id="intro">
+				<h3>
+					Example JSON
+				</h3>
+				<p>
+					Users can experiment with the sample json object that can be accessed by clicking the 
+					<code>Load Example</code> button on the home page.
+					Future sections of the doc will use the sample json to provide example queries.
+				</p>
+				<json-formatter json='sampleJSON' open="8" ng-model></json-formatter>
+				<h3>
+					Introduction
+				</h3>
+				<p>
+					This tool treats a javascript objects as table and provides features to query it using a sql-like syntax.
+				</p>
+				<h3>
+					FROM Clause
+				</h3>
+				<p>
+					By convention the FROM clause states the table to be queried. <br/>
+					Keeping conventions intact the FROM clause helps the user specify which object to query from. <br/>
+					If we wanted to query FROM the sample JSON, we could specify '<code>country</code>' (Case-sensitive) in the FROM clause.
+					Users can <a goto-tab="querynested" href="">query from nested objects.</a>
+				</p>
+				<h3>
+					SELECT Clause
+				</h3>
+				<p>
+					By convention the SELECT clause states the columns of the tables. <br/>
+					If a javascript object is your table, it is but obvious the various keys in the object serve as its columns.
+					User must input keys of the javascript object in the select clause.
+					If we wanted to SELECT columns from the sample JSON, we could specify '<code>name</code>' or '<code>captial</code>'  (Case-sensitive) in the SELECT clause. <br/>
+					Again keeping conventions intact entering a '<code>*</code>' will select all the keys in the object.
+					Users can <a goto-tab="selectnested" href="">select nested keys.</a>
+				</p>
+				<h3>
+					WHERE Clause
+				</h3>
+				<p>
+					WHERE clause serves to filter results in a table. <br/>
+					In here a user is expected to provide a javascript function that evaluates to a boolean.
+					More details at <a goto-tab="whereclause" href="">where clause doc.</a>
+				</p>
+				
+			</div>
+			<div role="tabpanel" class="tab-pane" id="simplequery">
+				<div class="well">
+					<p>
+						The sample json contains an array of json objects. <br/>
+						<json-formatter json='sampleJSON' open="8" ng-model></json-formatter>
+						<br/>
+					</p>
+					<h3>
+						Select all columns
+					</h3>
+					<p>
+						A simple query to select all the keys in the nested objects would be <br/>
+						<code> select * <br/> from country</code>
+					</p>
+					<h3>
+						Select specific columns
+					</h3>
+					<p>
+						A query to list the names and the capitals would be <br/>
+						<code> select name, capital <br/> from country</code>
+					</p>
+				</div>
+				<div>
+					<p class="bg-warning">All the values in the SELECT and FROM clauses are case sensitive</p>
+				</div>
+				
+			</div>
+			<div role="tabpanel" class="tab-pane" id="querynested">
+				<div class="well">
+					<p>
+						The sample json contains an array of json objects. <br/>
+						<json-formatter json='sampleJSON' open="8" ng-model></json-formatter>
+						<br/>
+					</p>
+					<h3>
+						Query only the first object in the array
+					</h3>
+					<p>
+						To query the first object in the array the user would need to enter a valid json path in the FROM clause. The resulting query would be <br/>
+						<code> select * <br/> from country.0 </code>
+					</p>
+					<h3>
+						Querying using valid json paths
+					</h3>
+					<p>
+						If the user wanted to query for dignitaries in the first object the query would be <br/>
+						<code> select * <br/> from country.0.dignitaries</code>
+					</p>
+				</div>
+				<div>
+					<p class="bg-warning">All the values in the SELECT and FROM clauses are case sensitive</p>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="selectnested">
+				<div class="well">
+					<p>
+						The sample json contains an array of json objects. <br/>
+						<json-formatter json='sampleJSON' open="8" ng-model></json-formatter>
+						<br/>
+					</p>
+					<h3>
+						Selecting nested properties
+					</h3>
+					<p>
+						To view the dignitaries across all the object a user can specify valid json paths in the SELECT clause<br/>
+						<code> select dignitaries.president <br/> from country</code>
+					</p>
+					<h3>
+						Note
+					</h3>
+					<p>When specyfing nested json paths in the <code>SELECT</code> clause, the json paths must be relative to the object mentioned in the <code>FROM</code> clause</p>
+				</div>
+				<div>
+					<p class="bg-warning">All the values in the SELECT and FROM clauses are case sensitive</p>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="whereclause">
+				<div class="well">
+					<p>
+						The sample json contains an array of json objects. <br/>
+						<json-formatter json='sampleJSON' open="8" ng-model></json-formatter>
+						<br/>
+					</p>
+					<h3>
+						WHERE clause to filter
+					</h3>
+					<p>
+						User is expected to input a javascript expression that will evaluate to a boolean<br/>
+						For eg. if the user wanted to view all the data assoicated with '<code>India</code>',
+						 the query would be <br/>
+						<code> select * <br/> from country <br/> where this.name === 'India'</code>
+					</p>
+					<h3>
+						Note
+					</h3>
+					<p>When referencing to keys / object properties, (<code>name</code> in the above example),
+					 keys must meet the following conditions
+					 <ul>
+					 	<li>All keys must be referenced by the <code>this</code> keyword </li>
+					 	<li>All keys must be relative to the object mentioned in the <code>FRP<</code> clause </li>
+					 </ul>
+					 </p>
+				</div>
+				<div>
+					<p class="bg-warning">All the values in the SELECT and FROM clauses are case sensitive</p>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="treeview">
+				<div class="well">
+					<h3>
+						Using the tree view to fetch JSON paths.
+					</h3>
+					<p>
+						It can become a tedious task to specify valid json paths in the <code>SELECT</code> and the 
+						<code>FROM</code> clauses. Users can select a node by click on it. Users can then either use the
+						<code>Use Selected Node in From</code> button to get the json path to the <code>FROM</code> clause and similarly use the <code>Use Selected Node in Select</code> button to get the JSON path to the <code>SELECT</code> clause. 
+					</p>
+					<h3>
+						Note
+					</h3>
+					<p>
+						Currently when selecting json path to the <code>SELECT</code> clause does not account for the JSON path being relative to the object in the <code>FROM</code> clause. It is still being worked on.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

@@ -1,9 +1,22 @@
 .doc {
 	min-height: 200px;
 	color: #337ab7;
+	padding-top: 20px;
 }
 .jsonsqlheader {
 	background-color: #6f5499;
 	color: #fff;
+	padding: 25px;	
+}
+.jsonsqlheader-sm {
+	background-color: #6f5499;
+	color: #fff;
 	padding: 10px;	
+}
+.txt-area {
+	width: 100%;
+}
+/*for fixed top*/
+body { 
+	padding-top: 70px; 
 }
