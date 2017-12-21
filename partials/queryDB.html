@@ -3,19 +3,22 @@
     <div class="col-md-3">
         <div class="jsonTree"></div>  
     </div> 
-    <div class="col-md-9">    
-        <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
+    <div class="col-md-9"> 
+      <div class = "row">
+        <div class = "col-md-12">   
+          <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
           <!-- Select form input -->
           <div class="form-group">
-            <label for="columns" class="col-md-2 control-label">Select</label>
+            <label for="columns" class="col-md-2 control-label">SELECT &nbsp;<a href="#" data-toggle="tooltip" title="SELECT clause states the columns of the tables"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             <div class="col-md-10">
               <input class="form-control" id="columns" ng-model="columns"/>
             </div>
+
           </div>
 
           <!-- from form input -->
           <div class="form-group">
-            <label for="table" class="col-md-2 control-label">From</label>
+            <label for="table" class="col-md-2 control-label">FROM &nbsp; <a href="#" data-toggle="tooltip" title="Specify which object to query from"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             <div class="col-md-10">
               <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
             </div>
@@ -23,7 +26,7 @@
 
           <!-- where form input -->
           <div class="form-group">
-            <label for="table" class="col-md-2 control-label">Where</label>
+            <label for="table" class="col-md-2 control-label">WHERE &nbsp;<a href="#" data-toggle="tooltip" title="WHERE clause serves to filter results in a table"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             <div class="col-md-10">
               <textarea class="form-control" id="whereClause" placeholder="Javascript conditions" 
               ng-model="whereClause" rows="8"></textarea>
@@ -51,25 +54,29 @@
               </a>
             </div>
           </div>
-        </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th ng-repeat="header in columnNames">
-              {{header}}
-            </th>
+          </form>
+        </div>
+      </div>
+    
+  
+      <div class="row">
+        <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th ng-repeat="header in columnNames">
+                {{header}}
+              </th>
+            </tr>
+          </thead>
+          <tr ng-repeat="row in queryResult">
+            <td ng-repeat="key in columnNames">
+              {{row[key]}}
+            </td>
           </tr>
-        </thead>
-        <tr ng-repeat="row in queryResult">
-          <td ng-repeat="key in columnNames">
-            {{row[key]}}
-          </td>
-        </tr>
-      </table>
+        </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
