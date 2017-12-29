@@ -7,54 +7,51 @@
       <div class = "row">
         <div class = "col-md-12">   
           <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
-          <!-- Select form input -->
-          <div class="form-group">
-            <label for="columns" class="col-md-2 control-label">SELECT &nbsp;<a href="#" data-toggle="tooltip" title="SELECT clause states the columns of the tables"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-            <div class="col-md-10">
-              <input class="form-control" id="columns" ng-model="columns"/>
+            <!-- Select form input -->
+            <div class="form-group">
+              <label for="columns" class="col-md-2 control-label">SELECT &nbsp;<a href="#" data-toggle="tooltip" title="SELECT clause states the columns of the tables"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <div class="col-md-10">
+                <input class="form-control" id="columns" ng-model="columns"/>
+              </div>
+
             </div>
 
-          </div>
+            <!-- Tests -->
+            <!-- from form input -->
+            <div class="form-group">
+              <label for="table" class="col-md-2 control-label">FROM &nbsp; <a href="#" data-toggle="tooltip" title="Specify which object to query from"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <div class="col-md-10">
+                <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
+              </div>
+            </div>
 
-          <!-- Tests -->
-          <!-- from form input -->
-          <div class="form-group">
-            <label for="table" class="col-md-2 control-label">FROM &nbsp; <a href="#" data-toggle="tooltip" title="Specify which object to query from"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-            <div class="col-md-10">
-              <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
+            <!-- where form input -->
+            <div class="form-group">
+              <label for="table" class="col-md-2 control-label">WHERE &nbsp;<a href="#" data-toggle="tooltip" title="WHERE clause serves to filter results in a table"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <div class="col-md-10">
+                <textarea class="form-control" id="whereClause" placeholder="Javascript conditions" 
+                ng-model="whereClause" rows="8"></textarea>
+              </div>
             </div>
-          </div>
 
-          <!-- where form input -->
-          <div class="form-group">
-            <label for="table" class="col-md-2 control-label">WHERE &nbsp;<a href="#" data-toggle="tooltip" title="WHERE clause serves to filter results in a table"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-            <div class="col-md-10">
-              <textarea class="form-control" id="whereClause" placeholder="Javascript conditions" 
-              ng-model="whereClause" rows="8"></textarea>
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-2">
+                <button type="submit" class="btn btn-default">Run Query</button>
+              </div>
+              <div class="col-md-3">
+                <a class="btn btn-default" ng-click="populateFrom()">
+                  Use Selected Node in From
+                </a>
+              </div>
+              <div class="col-md-3">
+                <a class="btn btn-default" ng-click="populateSelect()">
+                  Use Selected Node in Select
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div ng-show="!checkValidTable() || !checkValidColumns()|| !checkValidWhereClause()" class="col-md-offset-2 col-md-10">
-            <br/>
-            <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
-            <span ng-show="!checkValidColumns()">Column names are invalid</span>
-            <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
-          </div>
-          <div class="form-group">
-            <div class="col-md-offset-2 col-md-2">
-              <button type="submit" class="btn btn-default">Run Query</button>
-            </div>
-            <div class="col-md-3">
-              <a class="btn btn-default" ng-click="populateFrom()">
-                Use Selected Node in From
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a class="btn btn-default" ng-click="populateSelect()">
-                Use Selected Node in Select
-              </a>
-            </div>
-          </div>
+            
+            
           </form>
         </div>
       </div>
@@ -62,6 +59,18 @@
   
       <div class="row">
         <div class="col-md-12">
+        <label class="control-label">QUERY RESULTS:</label> 
+
+        </br><label class="control-label">Number of Rows: {{queryResult.length}}</label></br>
+
+        <div class="alert alert-danger" ng-show="!checkValidTable() || !checkValidColumns()|| !checkValidWhereClause()" class="col-md-offset-2 col-md-10">
+          
+          <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
+          <span ng-show="!checkValidColumns()">Column names are invalid</span>
+          <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
+          <br/>
+        </div>
+            
         <table class="table table-bordered">
           <thead>
             <tr>
