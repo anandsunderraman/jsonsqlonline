@@ -57,36 +57,47 @@
       </div>
     
   
-      <div class="row">
-        <div class="col-md-12">
-        <label class="control-label">QUERY RESULTS:</label> 
+      <div class="row" >
+        <div class="col-md-9">
+          <label class="control-label">QUERY RESULTS:</label> 
 
-        </br><label class="control-label">Number of Rows: {{queryResult.length}}</label></br>
+          </br><label class="control-label">Number of Rows: {{queryResult.length}}</label></br>
 
-        <div class="alert alert-danger" ng-show="!checkValidTable() || !checkValidColumns()|| !checkValidWhereClause()" class="col-md-offset-2 col-md-10">
-          
-          <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
-          <span ng-show="!checkValidColumns()">Column names are invalid</span>
-          <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
-          <br/>
-        </div>
+          <div class="alert alert-danger" ng-show="!checkValidTable() || !checkValidColumns()|| !checkValidWhereClause()" class="col-md-offset-2 col-md-10">
             
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th ng-repeat="header in columnNames">
-                {{header}}
-              </th>
-            </tr>
-          </thead>
-          <tr ng-repeat="row in queryResult">
-            <td ng-repeat="key in columnNames">
-              {{row[key]}}
-            </td>
-          </tr>
-        </table>
+            <span ng-show="!checkValidTable()">JSON path for table is invalid</span>
+            <span ng-show="!checkValidColumns()">Column names are invalid</span>
+            <span ng-show="!checkValidWhereClause()">Javascript in where clause is invalid</span>
+            <br/>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button ng-click="csvFile()" class="btn btn-default" ng-if = "queryResult"><span class="glyphicon glyphicon-save"></span> Download CSV </button>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered" ng-if = "queryResult">          
+            <thead>
+              <tr>
+                <th ng-repeat="header in columnNames">
+                  {{header}}
+                </th>
+              </tr>
+            </thead>
+            <tr ng-repeat="row in queryResult">
+              <td ng-repeat="key in columnNames">
+                {{row[key]}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+        
+      
+        
+      
     </div>
   </div>
 </div>
