@@ -29,3 +29,12 @@ TODO:
 * Make the javascript library a submodule
 * Jasmine tests
 * Provide for group by feature
+
+## Contribution Guide
+
+This is a simple web app running on angular 1 and bootstrap
+
+1. Fork the repo
+2. Clone the repo
+3. Paste the code into any simple web server
+4. Open index.html and you are all set !!
