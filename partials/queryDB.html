@@ -58,7 +58,7 @@
     
   
       <div class="row" >
-        <div class="col-md-9">
+        <div class="col-md-8">
           <label class="control-label">QUERY RESULTS:</label> 
 
           </br><label class="control-label">Number of Rows: {{queryResult.length}}</label></br>
@@ -71,8 +71,11 @@
             <br/>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <button ng-click="csvFile()" class="btn btn-default" ng-if = "queryResult"><span class="glyphicon glyphicon-save"></span> Download CSV </button>
+        </div>
+        <div class="col-md-2">
+          <button ng-click="jsonFile()" class="btn btn-default" ng-if = "queryResult"><span class="glyphicon glyphicon-save"></span> Download JSON </button>
         </div>
       </div>
 
