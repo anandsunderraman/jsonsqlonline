@@ -25,10 +25,9 @@ Queries could look like:
 
 TODO:
 
-* Provide for where clause
-* Make the javascript library a submodule
-* Jasmine tests
-* Provide for group by feature
+* Report issues on github
+* Autocomplete using JSON schema
+* Github actions
 
 ## Contribution Guide
 
@@ -37,4 +36,7 @@ This is a simple web app running on angular 1 and bootstrap
 1. Fork the repo
 2. Clone the repo
 3. Paste the code into any simple web server
+   ```
+   python3 -m http.server
+   ```
 4. Open index.html and you are all set !!
