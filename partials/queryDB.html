@@ -84,6 +84,7 @@
           <table class="table table-bordered" ng-if = "queryResult">          
             <thead>
               <tr>
+                <th>#</th>
                 <th ng-repeat="header in columnNames">
                   {{header}}
                   <span ng-class="reverse ? 'glyphicon glyphicon-chevron-up' : 'glyphicon glyphicon-chevron-down'" ng-click="reverse=!reverse;order(header, reverse)"></span>
@@ -91,6 +92,7 @@
               </tr>
             </thead>
             <tr ng-repeat="row in queryResult | orderBy:predicate:reverse">
+              <td>{{ $index + 1 }}</td>
               <td ng-repeat="key in columnNames">
                 {{row[key]}}
               </td>
