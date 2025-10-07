@@ -29,6 +29,7 @@ TODO:
 * Autocomplete using JSON schema
 * Github actions
 
+
 ## Contribution Guide
 
 This is a simple web app running on angular 1 and bootstrap
