@@ -1,0 +1,11 @@
+{
+    "name": "jsonsqlonline",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "test": "node scripts/run-tests.js"
+    },
+    "devDependencies": {
+      "puppeteer": "^23.7.0"
+    }
+  }

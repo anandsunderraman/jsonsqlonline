@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build
+dist
+
+# Test
+test-results
+
+# Environment variables
+.env
+
+# Puppeteer downloads
+.local-chromium/
