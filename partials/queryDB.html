@@ -11,9 +11,27 @@
             <div class="form-group">
               <label for="columns" class="col-md-2 control-label">SELECT &nbsp;<a href="#" data-toggle="tooltip" title="SELECT clause states the columns of the tables"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               <div class="col-md-10">
-                <input class="form-control" id="columns" ng-model="columns"/>
+                <input class="form-control" 
+                        id="columns" 
+                        type="text"
+                        uib-typeahead="c for c in columnSuggestions | filter:$viewValue.split(',').pop().trim() | limitTo:8"
+                        typeahead-on-select="onColumnSelect($item)"
+                        ng-model="columnInput"
+                        typeahead-editable="true"
+                        ng-keydown="addColumn($event)"
+                        ng-focus="columnInput = ''" 
+                        placeholder="Enter column names"/>
+                <div class="text-muted small" style="margin-top: 10px;">
+                  <strong>Selected Columns:</strong>
+                  <div style="margin-top: 5px;">
+                    <span ng-repeat="col in columns" class="label label-primary label-lg" style="margin-right: 5px; cursor: pointer; display: inline-block; padding: 0.5em 0.75em; font-size: 1.1em;">
+                      {{col}} 
+                      <span ng-click="removeColumn($index)" style="margin-left: 5px; font-weight: bold; cursor: pointer;">×</span>
+                    </span>
+                    <span ng-if="columns.length === 0" class="text-muted">No columns selected</span>
+                  </div>
+                </div>
               </div>
-
             </div>
 
             <!-- Tests -->
@@ -26,6 +44,7 @@
                        type="text" 
                        placeholder="Enter.valid.json.path" 
                        ng-model="table"
+                       ng-change="getColumnSuggestions()"
                        uib-typeahead="t for t in tableSuggestions | filter:$viewValue | limitTo:8"
                        typeahead-editable="true" />
               </div>
