@@ -21,7 +21,13 @@
             <div class="form-group">
               <label for="table" class="col-md-2 control-label">FROM &nbsp; <a href="#" data-toggle="tooltip" title="Specify which object to query from"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               <div class="col-md-10">
-                <input class="form-control" id="table" placeholder="Enter.valid.json.path" ng-model="table"/>
+                <input class="form-control" 
+                       id="table"
+                       type="text" 
+                       placeholder="Enter.valid.json.path" 
+                       ng-model="table"
+                       uib-typeahead="t for t in tableSuggestions | filter:$viewValue | limitTo:8"
+                       typeahead-editable="true" />
               </div>
             </div>
 
