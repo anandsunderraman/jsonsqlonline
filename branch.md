@@ -22,3 +22,6 @@ https://angular-ui.github.io/bootstrap/#!#typeahead
 
 To work on
 1. the current json schema library is not extract json schema for nested objects. Need to look at that library or write custom logic
+2. we wrote custom logic with AI
+3. now we need to make sure that we are able to update column suggestions
+   to do that we need to write a function that can fetch the schema based on the json path
