@@ -25,3 +25,8 @@ To work on
 2. we wrote custom logic with AI
 3. now we need to make sure that we are able to update column suggestions
    to do that we need to write a function that can fetch the schema based on the json path
+17th Dec 2025
+4. We now have the schema working. We now need to do the following
+   a. When column names are typed with "." then we need to look ahead to autocomplete
+   b. When column is selected then we need to automatically run query
+   c. Allow '*' to be added and when added remove other columns and vice versa
