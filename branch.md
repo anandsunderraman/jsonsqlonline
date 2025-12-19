@@ -27,6 +27,7 @@ To work on
    to do that we need to write a function that can fetch the schema based on the json path
 17th Dec 2025
 4. We now have the schema working. We now need to do the following
-   a. When column names are typed with "." then we need to look ahead to autocomplete
-   b. When column is selected then we need to automatically run query
+   a. When column names are typed with "." then we need to look ahead to autocomplete - *** Completed
+   b. When column is selected then we need to automatically run query - *** Completed
+   c. Implement auto complete for the table names
    c. Allow '*' to be added and when added remove other columns and vice versa
