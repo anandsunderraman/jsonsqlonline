@@ -6,7 +6,7 @@
     <div class="col-md-9"> 
       <div class = "row">
         <div class = "col-md-12">   
-          <form name="queryForm" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
+          <form name="queryForm" autocomplete="off" ng-submit="queryDB()" class="css-form form-horizontal" role="form" novalidate>
             <!-- Select form input -->
             <div class="form-group">
               <label for="columns" class="col-md-2 control-label">SELECT &nbsp;<a href="#" data-toggle="tooltip" title="SELECT clause states the columns of the tables"><span class="glyphicon glyphicon-question-sign"></span></a></label>
@@ -42,9 +42,10 @@
                 <input class="form-control" 
                        id="table"
                        type="text" 
+                       autocomplete="off"
                        placeholder="Enter.valid.json.path" 
                        ng-model="table"
-                       ng-change="getColumnSuggestions()"
+                       typeahead-on-select="getColumnSuggestions()"
                        uib-typeahead="t for t in tableSuggestions | filter:$viewValue | limitTo:8"
                        typeahead-editable="true" />
               </div>

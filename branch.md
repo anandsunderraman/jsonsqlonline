@@ -28,6 +28,9 @@ To work on
 17th Dec 2025
 4. We now have the schema working. We now need to do the following
    a. When column names are typed with "." then we need to look ahead to autocomplete - *** Completed
-   b. When column is selected then we need to automatically run query - *** Completed
-   c. Implement auto complete for the table names
+19th Dec 2025
+   a. When column is selected then we need to automatically run query - *** Completed
+   b. When column is removed then we need to automatically run query - *** Completed
+
+   c. Implement auto complete for the table names -- *** Completed
    c. Allow '*' to be added and when added remove other columns and vice versa
