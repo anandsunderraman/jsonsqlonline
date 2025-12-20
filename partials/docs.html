@@ -155,27 +155,98 @@
 						<br/>
 					</p>
 					<h3>
-						WHERE clause to filter
+						WHERE Clause Overview
 					</h3>
 					<p>
-						User is expected to input a javascript expression that will evaluate to a boolean<br/>
-						For eg. if the user wanted to view all the data assoicated with '<code>India</code>',
-						 the query would be <br/>
-						<code> select * <br/> from country <br/> where this.name === 'India'</code>
+						The WHERE clause allows you to filter results based on conditions. It uses <strong>JavaScript expressions</strong> that must evaluate to a boolean value (<code>true</code> or <code>false</code>). The library uses <a href="https://esprima.org/" target="_blank">Esprima</a> to parse and validate your JavaScript expressions.
 					</p>
+					
 					<h3>
-						Note
+						Basic WHERE Clause Syntax
 					</h3>
-					<p>When referencing to keys / object properties, (<code>name</code> in the above example),
-					 keys must meet the following conditions
-					 <ul>
-					 	<li>All keys must be referenced by the <code>this</code> keyword </li>
-					 	<li>All keys must be relative to the object mentioned in the <code>FRP<</code> clause </li>
-					 </ul>
-					 </p>
+					<p>
+						The WHERE clause expects a JavaScript expression that returns a boolean. Use the <code>this</code> keyword to reference properties of the current object being filtered.
+					</p>
+					
+					<h4>
+						Example 1: Simple Equality Check
+					</h4>
+					<p>
+						To filter records where the name equals 'India':
+					</p>
+					<code>select * <br/> from country <br/> where this.name === 'India'</code>
+					
+					<h4>
+						Example 2: String Comparison
+					</h4>
+					<p>
+						To find countries whose names start with 'U':
+					</p>
+					<code>select name, capital <br/> from country <br/> where this.name.startsWith('U')</code>
+					
+					<h4>
+						Example 3: Numeric Comparison
+					</h4>
+					<p>
+						If you had numeric data, you could filter by values:
+					</p>
+					<code>select * <br/> from country <br/> where this.population > 1000000</code>
+					
+					<h4>
+						Example 4: Complex Conditions
+					</h4>
+					<p>
+						You can use logical operators for complex conditions:
+					</p>
+					<code>select * <br/> from country <br/> where this.name === 'India' || this.name === 'USA'</code>
+					
+					<h4>
+						Example 5: Nested Property Access
+					</h4>
+					<p>
+						Access nested properties using dot notation:
+					</p>
+					<code>select name <br/> from country <br/> where this.dignitaries.president === 'Barack Obama'</code>
+					
+					<h3>
+						Important Rules
+					</h3>
+					<ul>
+						<li><strong>Use <code>this</code> keyword:</strong> Always reference object properties using <code>this.propertyName</code></li>
+						<li><strong>JavaScript syntax:</strong> Write valid JavaScript expressions that return boolean values</li>
+						<li><strong>Case sensitive:</strong> Property names are case-sensitive</li>
+						<li><strong>Relative to FROM clause:</strong> Properties are relative to the object specified in the FROM clause</li>
+						<li><strong>Must return boolean:</strong> The expression must evaluate to <code>true</code> or <code>false</code></li>
+					</ul>
+					
+					<h3>
+						Common JavaScript Expressions
+					</h3>
+					<ul>
+						<li><code>this.name === 'value'</code> - Exact string match</li>
+						<li><code>this.age > 18</code> - Numeric comparison</li>
+						<li><code>this.name.includes('text')</code> - String contains</li>
+						<li><code>this.name.startsWith('prefix')</code> - String starts with</li>
+						<li><code>this.name.endsWith('suffix')</code> - String ends with</li>
+						<li><code>this.status === 'active' && this.age >= 21</code> - Multiple conditions</li>
+						<li><code>this.tags && this.tags.length > 0</code> - Check if array exists and has items</li>
+					</ul>
+					
+					<h3>
+						Error Handling
+					</h3>
+					<p>
+						If your JavaScript expression is invalid, the query will fail. Common errors include:
+					</p>
+					<ul>
+						<li>Missing <code>this</code> keyword</li>
+						<li>Invalid JavaScript syntax</li>
+						<li>Referencing non-existent properties</li>
+						<li>Expressions that don't return boolean values</li>
+					</ul>
 				</div>
 				<div>
-					<p class="bg-warning">All the values in the SELECT and FROM clauses are case sensitive</p>
+					<p class="bg-warning">All property names in the WHERE clause are case sensitive</p>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="treeview">

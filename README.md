@@ -41,3 +41,7 @@ This is a simple web app running on angular 1 and bootstrap
    python3 -m http.server
    ```
 4. Open index.html and you are all set !!
+5. View current unit tests at
+   ```
+   http://localhost:8000/lib/tests/jsTestRunner.html
+   ```
