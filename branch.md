@@ -34,3 +34,8 @@ To work on
 
    c. Implement auto complete for the table names -- *** Completed
    c. Allow '*' to be added and when added remove other columns and vice versa
+
+20th Dec
+
+Pending bugs
+1. table name suggestions should not include arrays because they need an index
